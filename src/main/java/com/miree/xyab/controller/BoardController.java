@@ -30,7 +30,6 @@ public class BoardController {
     @GetMapping("/list")
     public String list(@PageableDefault Pageable pageable, Model model) {
         model.addAttribute("boardList", boardService.findBoardList(pageable));
-        log.info("pageable={}", pageable);
         return "board/list";
     }
 }

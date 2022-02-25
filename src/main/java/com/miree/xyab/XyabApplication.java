@@ -36,7 +36,7 @@ public class XyabApplication {
 							.subTitle("순서"+index)
 							.content("컨텐츠")
 							.boardType(BoardType.free)
-							.createdDated(LocalDateTime.now())
+							.createdDate(LocalDateTime.now())
 							.updatedDate(LocalDateTime.now())
 							.user(user).build())
 			);
