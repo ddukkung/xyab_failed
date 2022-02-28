@@ -4,6 +4,7 @@ import com.miree.xyab.annotation.SocialUser;
 import com.miree.xyab.domain.User;
 import com.miree.xyab.domain.enums.SocialType;
 import com.miree.xyab.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.core.MethodParameter;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -26,13 +27,10 @@ import java.util.Map;
 import static com.miree.xyab.domain.enums.SocialType.*;
 
 @Component
+@RequiredArgsConstructor
 public class UserArgumentResolver implements HandlerMethodArgumentResolver {
 
     private final UserRepository userRepository;
-
-    public UserArgumentResolver(UserRepository userRepository){
-        this.userRepository = userRepository;
-    }
 
     @Override
     public boolean supportsParameter(MethodParameter parameter){

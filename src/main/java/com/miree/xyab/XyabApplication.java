@@ -21,12 +21,12 @@ import java.util.stream.IntStream;
 @SpringBootApplication
 public class XyabApplication implements WebMvcConfigurer {
 
+	@Autowired
+	private UserArgumentResolver userArgumentResolver;
+
 	public static void main(String[] args) {
 		SpringApplication.run(XyabApplication.class, args);
 	}
-
-	@Autowired
-	private UserArgumentResolver userArgumentResolver;
 
 	@Override
 	public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
