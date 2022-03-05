@@ -21,7 +21,6 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 
 import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
-import java.util.HashMap;
 import java.util.Map;
 
 import static com.miree.xyab.domain.enums.SocialType.*;
@@ -74,8 +73,6 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
             return getModernUser(GOOGLE, map);
         } else if(FACEBOOK.isEquals(authority)) {
             return getModernUser(FACEBOOK, map);
-        } else if(KAKAO.isEquals(authority)) {
-            return getKakaoUser(map);
         }
 
         return null;
@@ -87,19 +84,6 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
                 .email(String.valueOf(map.get("email")))
                 .principal(String.valueOf(map.get("id")))
                 .socialType(socialType)
-                .createdDate(LocalDateTime.now())
-                .build();
-    }
-
-    private User getKakaoUser(Map<String, Object> map){
-        Map<String, String> propertyMap = (HashMap<String, String>) map.get("properties");
-        Map<String, String> accountMap = (HashMap<String, String>) map.get("kakao_account");
-
-        return User.builder()
-                .name(propertyMap.get("nickname"))
-                .email(String.valueOf(accountMap.get("email")))
-                .principal(String.valueOf(map.get("id")))
-                .socialType(KAKAO)
                 .createdDate(LocalDateTime.now())
                 .build();
     }

@@ -4,6 +4,7 @@ import com.miree.xyab.domain.enums.SocialType;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -23,6 +24,7 @@ public class User {
     private String name;
 
     @Column
+    @JsonIgnore
     private String password;
 
     @Column

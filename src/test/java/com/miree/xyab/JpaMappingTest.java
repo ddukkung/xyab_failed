@@ -5,7 +5,6 @@ import com.miree.xyab.domain.User;
 import com.miree.xyab.domain.enums.BoardType;
 import com.miree.xyab.repository.BoardRepository;
 import com.miree.xyab.repository.UserRepository;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +39,7 @@ public class JpaMappingTest {
                 .subTitle("서브 타이틀")
                 .content("콘텐츠")
                 .boardType(BoardType.free)
-                .createdDated(LocalDateTime.now())
+                .createdDate(LocalDateTime.now())
                 .updatedDate(LocalDateTime.now())
                 .user(user).build()
         );

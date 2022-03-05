@@ -14,7 +14,7 @@ spring:
       ddl-auto: create
   h2:
     console:
-      enabled: false
+      enabled: true
   devtools:
     livereload:
       enabled: true
@@ -30,8 +30,3 @@ spring:
           facebook:
             client-id: 652552122651321
             client-secret: 65ad34ed42ab6cacdc330873bbaf8ce1
-custom:
-  oauth2:
-    kakao:
-      client-id: db5609f475293b48b146df42d4241d43
-      client-secret: vn7elITmRDIVzTP4TPjqWwKRFiBi713p
