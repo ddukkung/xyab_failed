@@ -1,10 +1,8 @@
 package com.miree.xyab.controller;
 
 import com.miree.xyab.service.BoardService;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
@@ -21,12 +19,14 @@ public class BoardController {
 
     private final BoardService boardService;
 
-    @GetMapping({"", "/"})
-    public String board(@RequestParam(value = "idx", defaultValue = "0") Long idx, Model model) {
+    // 글 상세 페이지로 매핑
+    @GetMapping
+    public String board(@RequestParam(defaultValue = "0") Long idx, Model model) {
         model.addAttribute("board", boardService.findBoardByIdx(idx));
         return "board/form";
     }
 
+    // 글 목록 페이지로 매핑
     @GetMapping("/list")
     public String list(@PageableDefault Pageable pageable, Model model) {
         model.addAttribute("boardList", boardService.findBoardList(pageable));

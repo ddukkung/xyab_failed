@@ -31,16 +31,12 @@ public class JpaMappingTest {
                 .name("havi")
                 .password("test")
                 .email(email)
-                .createdDate(LocalDateTime.now())
                 .build());
 
         boardRepository.save(Board.builder()
                 .title(boardTestTitle)
-                .subTitle("서브 타이틀")
                 .content("콘텐츠")
                 .boardType(BoardType.free)
-                .createdDate(LocalDateTime.now())
-                .updatedDate(LocalDateTime.now())
                 .user(user).build()
         );
     }
@@ -54,7 +50,6 @@ public class JpaMappingTest {
 
         Board board = boardRepository.findByUser(user);
         assertThat(board.getTitle()).isEqualTo(boardTestTitle);
-        assertThat(board.getSubTitle()).isEqualTo("서브 타이틀");
         assertThat(board.getContent()).isEqualTo("콘텐츠");
         assertThat(board.getBoardType()).isEqualTo(BoardType.free);
     }
