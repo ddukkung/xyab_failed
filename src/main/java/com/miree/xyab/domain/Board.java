@@ -52,7 +52,7 @@ public class Board extends BaseEntity{
         this.setUpdatedDate();
     }
 
-    public Board setViewCtn() {
+    public Board updateViewCnt() {
         this.viewCnt++;
         return this;
     }

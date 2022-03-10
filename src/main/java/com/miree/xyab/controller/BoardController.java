@@ -1,5 +1,8 @@
 package com.miree.xyab.controller;
 
+import com.miree.xyab.domain.Board;
+import com.miree.xyab.dto.UserDto;
+import com.miree.xyab.dto.response.BoardResponseDto;
 import com.miree.xyab.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,4 +35,14 @@ public class BoardController {
         model.addAttribute("boardList", boardService.findBoardList(pageable));
         return "board/list";
     }
+
+    @GetMapping("/write")
+    public String write(@RequestParam(required = false) Long idx, Model model, UserDto userDto) {
+        if (idx != null) {
+            BoardResponseDto board = boardService.findBoardByIdx(idx);
+            model.addAttribute("board", board);
+        }
+        return "board/form";
+    }
+
 }

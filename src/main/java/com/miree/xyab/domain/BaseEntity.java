@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @Getter
 @EqualsAndHashCode(of = {"idx"})
 @MappedSuperclass
+// Entity 에서 공통적으로 사용될 날짜 필드를 관리할 클래스
 public class BaseEntity {
 
     @Id
