@@ -23,7 +23,7 @@ public class BoardController {
     @GetMapping
     public String board(@RequestParam(defaultValue = "0") Long idx, Model model) {
         model.addAttribute("board", boardService.findBoardByIdx(idx));
-        return "board/form";
+        return "board/detail";
     }
 
     // 글 목록 페이지로 매핑

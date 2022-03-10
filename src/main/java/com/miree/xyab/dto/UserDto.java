@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @Getter
 @EqualsAndHashCode(of = "idx")
-public class UserDto implements Serializable {
+public class UserDto {
 
     private Long idx;
     private String name;
@@ -19,5 +19,13 @@ public class UserDto implements Serializable {
         this.idx = user.getIdx();
         this.name = user.getName();
         this.email = user.getEmail();
+        this.userType = user.getUserType().getValue();
+    }
+
+    public UserDto(Long idx, String name, String email, String userType) {
+        this.idx = idx;
+        this.name = name;
+        this.email = email;
+        this.userType = userType;
     }
 }

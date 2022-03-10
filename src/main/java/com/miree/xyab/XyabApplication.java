@@ -3,7 +3,6 @@ package com.miree.xyab;
 import com.miree.xyab.domain.Board;
 import com.miree.xyab.domain.User;
 import com.miree.xyab.domain.enums.BoardType;
-import com.miree.xyab.event.BoardEventHandler;
 import com.miree.xyab.repository.BoardRepository;
 import com.miree.xyab.repository.UserRepository;
 import com.miree.xyab.resolver.UserArgumentResolver;
@@ -46,7 +45,7 @@ public class XyabApplication implements WebMvcConfigurer {
 					.socialType(FACEBOOK)
 					.build());
 
-			IntStream.rangeClosed(1, 200).forEach(index -> boardRepository.save(Board.builder()
+			IntStream.rangeClosed(1, 50).forEach(index -> boardRepository.save(Board.builder()
 					.title("게시글" + index)
 					.content("컨텐츠")
 					.boardType(BoardType.free)
@@ -54,11 +53,6 @@ public class XyabApplication implements WebMvcConfigurer {
 					.build())
 			);
 		};
-	}
-
-	@Bean
-	BoardEventHandler boardEventHandler() {
-		return new BoardEventHandler();
 	}
 
 }

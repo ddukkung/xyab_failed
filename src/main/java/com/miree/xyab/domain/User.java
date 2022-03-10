@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table
-public class User extends BaseEntity implements Serializable {
+public class User extends BaseEntity {
 
     @Id
     @Column
