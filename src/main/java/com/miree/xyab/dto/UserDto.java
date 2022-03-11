@@ -3,11 +3,13 @@ package com.miree.xyab.dto;
 import com.miree.xyab.domain.User;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 @Getter
 @EqualsAndHashCode(of = "idx")
+@NoArgsConstructor
 public class UserDto {
 
     private Long idx;

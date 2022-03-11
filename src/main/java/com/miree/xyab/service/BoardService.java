@@ -20,9 +20,8 @@ public class BoardService {
         return boardRepository.findAll(pageable);
     }
 
-    public BoardResponseDto findBoardByIdx(Long idx) {
-        Board board = boardRepository.findById(idx).get();
-        return new BoardResponseDto(board.updateViewCnt());
+    public Board findBoardByIdx(Long idx) {
+        return boardRepository.findById(idx).orElse(new Board());
     }
 
 

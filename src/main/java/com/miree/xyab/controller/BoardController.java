@@ -22,24 +22,22 @@ public class BoardController {
 
     private final BoardService boardService;
 
-    // 글 상세 페이지로 매핑
     @GetMapping
-    public String board(@RequestParam(defaultValue = "0") Long idx, Model model) {
-        model.addAttribute("board", boardService.findBoardByIdx(idx));
-        return "board/detail";
-    }
-
-    // 글 목록 페이지로 매핑
-    @GetMapping("/list")
     public String list(@PageableDefault Pageable pageable, Model model) {
         model.addAttribute("boardList", boardService.findBoardList(pageable));
         return "board/list";
     }
 
+    @GetMapping("detail")
+    public String board(@RequestParam(defaultValue = "0") Long idx, Model model) {
+        model.addAttribute("board", boardService.findBoardByIdx(idx));
+        return "board/detail";
+    }
+
     @GetMapping("/write")
     public String write(@RequestParam(required = false) Long idx, Model model, UserDto userDto) {
         if (idx != null) {
-            BoardResponseDto board = boardService.findBoardByIdx(idx);
+            Board board = boardService.findBoardByIdx(idx);
             model.addAttribute("board", board);
         }
         return "board/form";
