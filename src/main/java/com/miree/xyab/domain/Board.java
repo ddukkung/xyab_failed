@@ -13,11 +13,6 @@ import javax.persistence.*;
 @Table
 public class Board extends BaseEntity{
 
-    @Id
-    @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idx;
-
     @Column
     private String title;
 

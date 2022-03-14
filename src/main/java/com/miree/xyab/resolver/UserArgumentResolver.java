@@ -72,8 +72,11 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
 
     private User convertUser(String authority, Map<String, Object> map) {
 
-        if (GOOGLE.isEquals(authority)) return getModernUser(GOOGLE, map);
-        else if (FACEBOOK.isEquals(authority)) return getModernUser(FACEBOOK, map);
+        if (GOOGLE.isEquals(authority)) {
+            return getModernUser(GOOGLE, map);
+        } else if (FACEBOOK.isEquals(authority)) {
+            return getModernUser(FACEBOOK, map);
+        }
 
         return null;
     }

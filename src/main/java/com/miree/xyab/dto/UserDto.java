@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Getter
 @EqualsAndHashCode(of = "idx")
 @NoArgsConstructor
-public class UserDto {
+public class UserDto implements Serializable {
 
     private Long idx;
     private String name;

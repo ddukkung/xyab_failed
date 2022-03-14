@@ -28,7 +28,7 @@ public class BoardController {
         return "board/list";
     }
 
-    @GetMapping("detail")
+    @GetMapping("/detail")
     public String board(@RequestParam(defaultValue = "0") Long idx, Model model) {
         model.addAttribute("board", boardService.findBoardByIdx(idx));
         return "board/detail";
@@ -37,7 +37,7 @@ public class BoardController {
     @GetMapping("/write")
     public String write(@RequestParam(required = false) Long idx, Model model, UserDto userDto) {
         if (idx != null) {
-            Board board = boardService.findBoardByIdx(idx);
+            BoardResponseDto board = boardService.findBoardByIdx(idx);
             model.addAttribute("board", board);
         }
         return "board/form";

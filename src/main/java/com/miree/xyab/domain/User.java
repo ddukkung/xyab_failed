@@ -10,19 +10,13 @@ import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 @EqualsAndHashCode(callSuper = true, of = {"email"})
 @Getter
 @NoArgsConstructor
 @Entity
 @Table
-public class User extends BaseEntity {
-
-    @Id
-    @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idx;
+public class User extends BaseEntity implements Serializable {
 
     @Column
     private String name;
