@@ -1,6 +1,5 @@
 package com.miree.xyab.domain;
 
-import com.miree.xyab.domain.enums.SocialType;
 import com.miree.xyab.domain.enums.UserType;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -33,19 +32,14 @@ public class User extends BaseEntity implements Serializable {
 
     @Column
     @Enumerated(EnumType.STRING)
-    private SocialType socialType;
-
-    @Column
-    @Enumerated(EnumType.STRING)
     private UserType userType;
 
     @Builder
-    public User(String name, String password, String email, String principal, SocialType socialType, UserType userType) {
+    public User(String name, String password, String email, String principal, UserType userType) {
         this.name = name;
         this.password = password;
         this.email = email;
         this.principal = principal;
-        this.socialType = socialType;
         this.userType = userType;
         this.setCreatedDate();
         this.setUpdatedDate();

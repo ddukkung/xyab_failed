@@ -1,6 +1,5 @@
 package com.miree.xyab.controller;
 
-import com.miree.xyab.annotation.SocialUser;
 import com.miree.xyab.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +13,7 @@ public class LoginController {
     }
 
     @GetMapping("/loginSuccess")
-    public String loginComplete(@SocialUser User user) {
+    public String loginComplete(User user) {
         return "redirect:/board/list";
     }
 
