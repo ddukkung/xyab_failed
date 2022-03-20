@@ -15,4 +15,8 @@ public class UserService {
     public User toEntity(UserDto userDto) {
         return userRepository.findById(userDto.getIdx()).orElse(null);
     }
+
+    /*public UserDto saveUser(UserDto userDto) {
+        return userRepository.save();
+    }*/
 }

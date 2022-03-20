@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 @Getter
@@ -13,21 +14,31 @@ import java.io.Serializable;
 public class UserDto implements Serializable {
 
     private Long idx;
-    private String name;
-    private String email;
+
+    @NotBlank
+    private String userId;
+
+    @NotBlank
+    private String password;
+
+    @NotBlank
+    private String nickname;
+    
     private String userType;
 
     public UserDto(User user) {
         this.idx = user.getIdx();
-        this.name = user.getName();
-        this.email = user.getEmail();
+        this.userId = user.getUserId();
+        this.password = user.getPassword();
+        this.nickname = user.getNickname();
         this.userType = user.getUserType().getValue();
     }
 
-    public UserDto(Long idx, String name, String email, String userType) {
+    public UserDto(Long idx, String userId, String password, String nickname, String userType) {
         this.idx = idx;
-        this.name = name;
-        this.email = email;
+        this.userId = userId;
+        this.password = password;
+        this.nickname = nickname;
         this.userType = userType;
     }
 }

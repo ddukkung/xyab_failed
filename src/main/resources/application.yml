@@ -20,13 +20,3 @@ spring:
       enabled: true
   thymeleaf:
     cache: false
-  security:
-    oauth2:
-      client:
-        registration:
-          google:
-            client-id: 371558190066-emd8pc7cs20pqg6ie1jt43trs0hvfl3l.apps.googleusercontent.com
-            client-secret: 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
-          facebook:
-            client-id: 652552122651321
-            client-secret: 65ad34ed42ab6cacdc330873bbaf8ce1

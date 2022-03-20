@@ -24,10 +24,8 @@ public class XyabApplication implements WebMvcConfigurer {
 	public CommandLineRunner runner(UserRepository userRepository, BoardRepository boardRepository) {
 		return (args) -> {
 			User user = userRepository.save(User.builder()
-					.name("havi")
+					.userId("havi")
 					.password("test")
-					.email("havi@gmail.com")
-					.principal("textPrincipal")
 					.build());
 
 			IntStream.rangeClosed(1, 50).forEach(index -> boardRepository.save(Board.builder()
